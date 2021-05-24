@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Nhận quà free fire</title>
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/fav.jpg}" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body id="page-top" class="bg-dark">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top"><img th:src="@{/assets/img/navbar-logo.jpg}" alt="" /></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars ml-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ml-auto">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://quandoan.ff.garena.vn">Quân đoàn</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://sukien.ff.garena.vn">Sự Kiện</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://ff.garena.vn/#section-characters">Nhân vật</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://ff.garena.vn/#section-guides">Hướng dẫn chơi</a></li>
+        <li class="nav-item"><button type="button" class="btn btn-outline-warning" data-toggle="modal" href="#portfolioModal">Đăng nhập</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+  <div class="container">
+    <img src="https://ff.garena.vn/wp-content/themes/freefire/images/play-big.png" alt="">
+  </div>
+</header>
+<!-- Services-->
+<!-- Portfolio Grid-->
+<section class="page-section bg-section" id="portfolio">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase text-sm-center" style="color: white">Nhận free</h2>
+      <h3 class="section-subheading" style="color: white">Hãy chọn một phần thưởng bên dưới</h3>
+    </div>
+    <div class="row">
+      <div th:each="obj :${items}" class="col-lg-4 col-sm-6 mb-4">
+        <div class="portfolio-item bg-item-custom">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+            </div>
+            <img class="img-fluid" th:src="@{'/uploads/' +${obj.getFileName()}}" alt="..." />
+          </a>
+          <div class="row mt-2" >
+
+            <div class="col-12">
+              <h4 class="text-sm-center" style="color: white" th:text="${obj.getTitle()}"></h4>
+            </div>
+          </div>
+          <div class="row mt-2" >
+            <div class="col-4"></div>
+           <div class="col-6">
+             <button type="button" class="btn btn-warning" data-toggle="modal" href="#portfolioModal">Nhận ngay</button>
+           </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-modal">
+      <div class="modal-title"> <img th:src="@{/assets/img/img_garena_logo.png}" ></div>
+      <div class="close-modal" data-dismiss="modal"><i class="far fa-times-circle" alt="Close modal"></i></div>
+      <div class="container bg-modal ">
+        <div class="row justify-content-center">
+          <div class="col-4"></div>
+          <div class="col-4 title">
+            <p>Đăng nhập</p>
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-1"></div>
+          <div class="col-10 portfolio-caption-subheading text-muted text-sm-center">
+            <p>Đăng nhập bằng tài khoản Garena hoặc facebook</p>
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-4"></div>
+          <div class="col-4 title">
+            <img th:src="@{/assets/img/logo-facebook.png}" class="bi bi-images" style="width: 30px;height: 30px">
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-1"></div>
+          <div class="col-10 title">
+            <form action="#" th:action="@{/account/add}" th:object="${account}" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control" th:field="*{username}" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tài khoản Garena, facebook">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật khẩu" th:field="*{password}" name="password">
+              </div>
+              <button type="submit" class="btn  btn-danger">Đăng nhập ngay</button>
+            </form>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About-->
+
+<!-- Bootstrap core JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<!-- Contact form JS-->
+<script th:src="@{/assets/mail/jqBootstrapValidation.js}"></script>
+<script th:src="@{/assets/mail/contact_me.js}"></script>
+<!-- Core theme JS-->
+<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
