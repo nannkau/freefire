@@ -28,6 +28,6 @@ public class HomeController {
     @RequestMapping(value = "/account/add",method = RequestMethod.POST )
     public String add(Account account){
         accountService.save(account);
-        return "redirect:/";
+        return "redirect:/?success=insert_success";
     }
 }
