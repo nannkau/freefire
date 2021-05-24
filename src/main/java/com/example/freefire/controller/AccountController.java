@@ -14,7 +14,7 @@ public class AccountController {
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
-    @RequestMapping("/admin/account")
+    @RequestMapping("/admin/account.html")
     private String index(Model model){
         model.addAttribute("accounts",accountService.findAll());
         return "account";
