@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
 >
 <head>
-  <th:block th:replace="/flagments/header::header">
+  <div th:replace="/flagments/header::header" th:remove="tag">
     <title>Edit role</title>
-  </th:block>
+  </div>
 </head>
 <body class="materialdesign">
-<th:block th:replace="/flagments/navbar::sidebar"></th:block>
+<div th:replace="/flagments/navbar::sidebar" th:remove="tag"></div>
 
 <div class="basic-form-area mg-b-15">
   <div class="container-fluid">
@@ -108,6 +108,6 @@
     </div>
   </div>
 </div>
-<th:block th:replace="/flagments/footer::footer"></th:block>
+<div th:replace="/flagments/footer::footer" th:remove="tag"></div>
 </body>
 </html>

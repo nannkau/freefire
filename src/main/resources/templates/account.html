@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:replace="/flagments/header::header">
+    <div th:replace="/flagments/header::header">
         <title>Role</title>
-    </th:block>
+    </div>
 </head>
 <body class="materialdesign">
-<th:block th:replace="/flagments/navbar::sidebar"></th:block>
+<div th:replace="/flagments/navbar::sidebar"></div>
 
 <div class="admin-dashone-data-table-area">
     <div class="data-table-area mg-b-15">
@@ -48,6 +48,6 @@
         </div>
     </div>
 </div>
-<th:block th:replace="/flagments/footer::footer"></th:block>
+<div th:replace="/flagments/footer::footer"></div>
 </body>
 </html>
